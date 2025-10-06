@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://bajo0tlqo8wft"]
+
+[ext_resource type="Texture2D" uid="uid://bw7kxj8v0bera" path="res://assets/images/wall_top_bar.png" id="1_8eu0o"]
+[ext_resource type="Texture2D" uid="uid://bqyadn4vyh0y7" path="res://assets/images/wall_top_corner.png" id="2_f8on5"]
+[ext_resource type="Texture2D" uid="uid://b8ib8byxiim46" path="res://assets/images/wall.png" id="3_q8h8f"]
+[ext_resource type="Texture2D" uid="uid://tkptebiy0xlm" path="res://assets/images/floor.png" id="4_f8on5"]
+
+[node name="WallTest" type="Node2D"]
+
+[node name="WallTopBar6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.27374e-13, 24)
+rotation = 1.5708
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, 8)
+rotation = -1.5708
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 24)
+rotation = -4.71239
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 32)
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 40)
+rotation = -3.14159
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 8)
+rotation = 1.5708
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, -8)
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, -8)
+texture = ExtResource("1_8eu0o")
+
+[node name="WallCorner2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, -8)
+rotation = -1.5708
+texture = ExtResource("2_f8on5")
+
+[node name="WallCorner" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, -8)
+texture = ExtResource("2_f8on5")
+
+[node name="WallCorner4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 40)
+rotation = 1.5708
+texture = ExtResource("2_f8on5")
+
+[node name="Wall3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 8)
+texture = ExtResource("3_q8h8f")
+
+[node name="Wall4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 48)
+texture = ExtResource("3_q8h8f")
+
+[node name="Wall5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 48)
+texture = ExtResource("3_q8h8f")
+
+[node name="Wall6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 48)
+texture = ExtResource("3_q8h8f")
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 8)
+texture = ExtResource("3_q8h8f")
+
+[node name="Wall2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, 48)
+texture = ExtResource("3_q8h8f")
+
+[node name="WallCorner3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, 40)
+rotation = 3.14159
+texture = ExtResource("2_f8on5")
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 24)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("4_f8on5")
