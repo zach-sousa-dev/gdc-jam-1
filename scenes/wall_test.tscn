@@ -21,24 +21,24 @@ texture = ExtResource("1_8eu0o")
 
 [node name="WallTopBar8" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(40, 24)
+position = Vector2(104, 23)
 rotation = -4.71239
 texture = ExtResource("1_8eu0o")
 
 [node name="WallTopBar10" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(24, 32)
+position = Vector2(133, 72)
 texture = ExtResource("1_8eu0o")
 
 [node name="WallTopBar9" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(8, 40)
+position = Vector2(117, 80)
 rotation = -3.14159
 texture = ExtResource("1_8eu0o")
 
 [node name="WallTopBar5" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(40, 8)
+position = Vector2(104, 7.00003)
 rotation = 1.5708
 texture = ExtResource("1_8eu0o")
 
@@ -60,12 +60,12 @@ texture = ExtResource("2_f8on5")
 
 [node name="WallCorner" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(40, -8)
+position = Vector2(104, -8)
 texture = ExtResource("2_f8on5")
 
 [node name="WallCorner4" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(40, 40)
+position = Vector2(149, 80)
 rotation = 1.5708
 texture = ExtResource("2_f8on5")
 
@@ -76,17 +76,17 @@ texture = ExtResource("3_q8h8f")
 
 [node name="Wall4" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(8, 48)
+position = Vector2(28, 110)
 texture = ExtResource("3_q8h8f")
 
 [node name="Wall5" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(24, 48)
+position = Vector2(44, 110)
 texture = ExtResource("3_q8h8f")
 
 [node name="Wall6" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(40, 48)
+position = Vector2(60, 110)
 texture = ExtResource("3_q8h8f")
 
 [node name="Wall" type="Sprite2D" parent="."]
@@ -96,12 +96,12 @@ texture = ExtResource("3_q8h8f")
 
 [node name="Wall2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-8, 48)
+position = Vector2(12, 110)
 texture = ExtResource("3_q8h8f")
 
 [node name="WallCorner3" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-8, 40)
+position = Vector2(-8, 88)
 rotation = 3.14159
 texture = ExtResource("2_f8on5")
 
@@ -113,4 +113,154 @@ texture = ExtResource("4_f8on5")
 [node name="Floor2" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(24, 24)
+texture = ExtResource("4_f8on5")
+
+[node name="WallTopBar3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, -8)
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, -8)
+texture = ExtResource("1_8eu0o")
+
+[node name="Wall7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, 8)
+texture = ExtResource("3_q8h8f")
+
+[node name="Wall8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 8)
+texture = ExtResource("3_q8h8f")
+
+[node name="Floor3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 24)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, 24)
+texture = ExtResource("4_f8on5")
+
+[node name="WallTopBar11" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, -8)
+texture = ExtResource("1_8eu0o")
+
+[node name="WallTopBar12" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, -8)
+texture = ExtResource("1_8eu0o")
+
+[node name="Wall9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 8)
+texture = ExtResource("3_q8h8f")
+
+[node name="Wall10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 8)
+texture = ExtResource("3_q8h8f")
+
+[node name="Floor5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 24)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 24)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 40)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 40)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 40)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, 40)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor11" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 40)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor12" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 40)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor13" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 56)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor14" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 56)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor15" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 56)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor16" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, 56)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor17" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 56)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor18" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 56)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor19" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 72)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor20" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 72)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor21" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(40, 72)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor22" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, 72)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor23" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 72)
+texture = ExtResource("4_f8on5")
+
+[node name="Floor24" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 72)
 texture = ExtResource("4_f8on5")
