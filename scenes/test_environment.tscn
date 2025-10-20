@@ -1,17 +1,749 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctsowiuwr1cga"]
+[gd_scene load_steps=5 format=3 uid="uid://ctsowiuwr1cga"]
 
 [ext_resource type="Texture2D" uid="uid://dl1hm1ubpx7d4" path="res://icon.svg" id="1_uhjjb"]
+[ext_resource type="Texture2D" uid="uid://tkptebiy0xlm" path="res://assets/images/floor.png" id="2_b3mux"]
+[ext_resource type="Script" uid="uid://c5dyag01bq8y0" path="res://scenes/player.gd" id="2_nbain"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3mux"]
+size = Vector2(16, 32)
 
 [node name="TestEnvironment" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Floor" type="Node2D" parent="."]
+position = Vector2(33, 24)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(64, 64)
+[node name="Floor" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor2" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor3" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor4" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor5" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor6" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor7" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor8" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor9" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor10" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor11" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor12" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor13" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor14" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor15" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor16" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor17" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor18" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor19" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor20" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor21" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor22" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor23" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor24" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor25" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor26" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor27" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor28" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor29" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor30" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor31" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor32" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor33" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor34" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor35" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor36" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor37" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor38" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor39" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 8)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor40" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 24)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor41" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor42" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor43" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor44" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor45" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor46" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor47" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 40)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor48" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 56)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor49" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor50" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor51" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor52" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor53" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor54" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor55" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor56" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor57" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor58" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor59" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor60" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor61" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor62" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor63" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor64" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor65" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor66" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor67" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor68" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor69" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor70" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor71" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor72" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor73" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor74" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor75" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor76" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor77" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor78" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor79" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor80" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor81" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor82" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor83" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor84" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor85" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor86" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor87" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 72)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor88" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 88)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor89" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor90" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor91" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor92" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor93" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor94" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor95" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 104)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor96" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 120)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor97" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor98" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor99" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor100" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor101" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor102" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor103" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor104" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor105" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor106" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(8, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor107" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor108" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(24, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor109" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor110" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(40, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor111" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor112" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(56, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor113" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor114" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor115" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor116" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor117" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor118" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor119" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor120" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor121" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor122" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(72, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor123" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor124" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(88, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor125" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor126" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(104, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor127" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor128" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(120, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor129" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor130" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor131" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor132" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor133" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor134" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor135" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 136)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor136" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 152)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor137" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor138" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(136, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor139" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor140" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(152, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor141" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor142" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(168, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor143" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 168)
+texture = ExtResource("2_b3mux")
+
+[node name="Floor144" type="Sprite2D" parent="Floor"]
+texture_filter = 1
+position = Vector2(184, 184)
+texture = ExtResource("2_b3mux")
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(33, 24)
+script = ExtResource("2_nbain")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(8, 16)
+scale = Vector2(0.125, 0.25)
 texture = ExtResource("1_uhjjb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(10, 10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(8, 16)
 shape = SubResource("RectangleShape2D_b3mux")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
