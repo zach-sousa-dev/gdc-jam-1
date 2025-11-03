@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctsowiuwr1cga"]
+[gd_scene load_steps=7 format=3 uid="uid://ctsowiuwr1cga"]
 
+[ext_resource type="Script" uid="uid://cl013ejiagg4q" path="res://scenes/test_environment.gd" id="1_8ya4j"]
 [ext_resource type="Texture2D" uid="uid://dl1hm1ubpx7d4" path="res://icon.svg" id="1_uhjjb"]
 [ext_resource type="Texture2D" uid="uid://tkptebiy0xlm" path="res://assets/images/floor.png" id="2_b3mux"]
 [ext_resource type="Script" uid="uid://c5dyag01bq8y0" path="res://scenes/player.gd" id="2_nbain"]
+[ext_resource type="Script" uid="uid://ykd5qtcn5nq7" path="res://scenes/camera_2d.gd" id="5_5qein"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3mux"]
 size = Vector2(16, 32)
 
 [node name="TestEnvironment" type="Node2D"]
+script = ExtResource("1_8ya4j")
 
 [node name="Floor" type="Node2D" parent="."]
 position = Vector2(33, 24)
@@ -732,18 +735,19 @@ texture_filter = 1
 position = Vector2(184, 184)
 texture = ExtResource("2_b3mux")
 
-[node name="player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(33, 24)
 script = ExtResource("2_nbain")
 
-[node name="Sprite2D" type="Sprite2D" parent="player"]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(8, 16)
 scale = Vector2(0.125, 0.25)
 texture = ExtResource("1_uhjjb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(8, 16)
 shape = SubResource("RectangleShape2D_b3mux")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+script = ExtResource("5_5qein")
