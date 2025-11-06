@@ -5,3 +5,4 @@
 [node name="test_wall" type="Sprite2D"]
 texture_filter = 1
 texture = ExtResource("1_ybdiq")
+centered = false

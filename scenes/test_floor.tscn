@@ -5,3 +5,4 @@
 [node name="test_floor" type="Sprite2D"]
 texture_filter = 1
 texture = ExtResource("1_rmnn5")
+centered = false
