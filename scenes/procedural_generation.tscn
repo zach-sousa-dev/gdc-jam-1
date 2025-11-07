@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://cyb5dgopn0iix" path="res://scenes/procedural_generation.gd" id="1_7ksoe"]
 
 [node name="ProceduralGeneration" type="Node2D"]
+
+[node name="Generator" type="Node2D" parent="."]
 script = ExtResource("1_7ksoe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.8, 0.8)
