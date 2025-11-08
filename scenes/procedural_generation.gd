@@ -12,7 +12,7 @@ const NUM_GENERATIONS = 4
 # Alive represents walls, dead is floor.
 const ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS = 4
 const DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS = 5
-const INITIAL_ALIVE_PERCENT = 0.45
+const INITIAL_ALIVE_PERCENT = 0.48
 
 var map = []
 var genNum = 0
@@ -28,7 +28,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_down"):
+	if Input.is_action_just_pressed("move_left"):
 		for child in get_children():
 			child.queue_free()
 		map = create_new_generation(map, ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS, DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS)
