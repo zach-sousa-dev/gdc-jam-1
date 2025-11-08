@@ -5,8 +5,8 @@ const TILE_SIZE = 16
 const WALL_SCENE: PackedScene = preload("res://scenes/test_wall.tscn")
 const FLOOR_SCENE: PackedScene = preload("res://scenes/test_floor.tscn")
 
-const MAP_WIDTH = 80
-const MAP_HEIGHT = 80
+const MAP_COLS = 80
+const MAP_ROWS = 120
 
 const NUM_GENERATIONS = 4
 # Alive represents walls, dead is floor.
@@ -19,7 +19,7 @@ var genNum = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	map = initialize_map(MAP_WIDTH, MAP_HEIGHT, INITIAL_ALIVE_PERCENT)
+	map = initialize_map(MAP_COLS, MAP_ROWS, INITIAL_ALIVE_PERCENT)
 	draw_map(TILE_SIZE, map, WALL_SCENE, FLOOR_SCENE)
 	print("The map is " + str(map.size()) + " tiles by " + str(map[0].size()))
 	print("You are looking at generation #" + str(genNum))
@@ -75,7 +75,7 @@ func draw_map(tile_scale: int, array: Array, wall: PackedScene, floor: PackedSce
 # Running this once generates the next generation of cellular automata utilizing some
 # pre-defined rules.
 func create_new_generation(array: Array, stayAliveThreshold: int, becomeAliveThreshold) -> Array:
-	for row in array.size() -1:
+	for row in array.size() - 1:
 		for col in array[row].size() - 1:
 			array[row][col] = calculate_state_using_rule(row, col, array, stayAliveThreshold, becomeAliveThreshold)
 	return array
@@ -105,8 +105,8 @@ func calculate_state_using_rule(row: int, col: int, array: Array, stayAliveThres
 # Get an array of all the neighboring values based on the position of the original
 # cell. Array should be rectangular (all rows should be the same length).
 func gather_neighbors(row: int, col: int, array: Array) -> Array:
-	var WIDTH = array.size()
-	var HEIGHT = array[0].size()
+	var HEIGHT = array.size()
+	var WIDTH = array[0].size()
 	var neighbors = [
 			0, 1, 2, # Row of northern neighbors.
 			3,    4, # Row of west and east neighbors (the middle is the original cell).
