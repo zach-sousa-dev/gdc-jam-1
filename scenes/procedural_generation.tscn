@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://0gderw056k61"]
+[gd_scene load_steps=3 format=3 uid="uid://cnp6igr6830pr"]
 
 [ext_resource type="Script" uid="uid://cyb5dgopn0iix" path="res://scenes/procedural_generation.gd" id="1_7ksoe"]
-[ext_resource type="Script" uid="uid://cmdt5b585n6ve" path="res://scenes/zoom.gd" id="2_gs2ht"]
+[ext_resource type="Script" path="res://scenes/zoom.gd" id="2_gs2ht"]
 
 [node name="ProceduralGeneration" type="Node2D"]
 

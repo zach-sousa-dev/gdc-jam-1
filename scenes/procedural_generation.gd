@@ -2,24 +2,24 @@ extends Node2D
 
 const TILE_SIZE = 16
 
-const WALL_SCENE: PackedScene = preload("res://scenes/test_wall.tscn")
+const WALL_SCENE: PackedScene = preload("res://scenes/test_wall_collider_only.tscn")
 const FLOOR_SCENE: PackedScene = preload("res://scenes/test_floor.tscn")
 
 const MAP_COLS = 80
-const MAP_ROWS = 120
+const MAP_ROWS = 80
 
 const NUM_GENERATIONS = 4
 # Alive represents walls, dead is floor.
 const ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS = 4
 const DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS = 5
-const INITIAL_ALIVE_PERCENT = 0.48
+const INITIAL_ALIVE_PERCENT = 0.49
 
 var map = []
 var genNum = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	map = initialize_map(MAP_COLS, MAP_ROWS, INITIAL_ALIVE_PERCENT)
+	map = await initialize_map(MAP_COLS, MAP_ROWS, INITIAL_ALIVE_PERCENT)
 	draw_map(TILE_SIZE, map, WALL_SCENE, FLOOR_SCENE)
 	print("The map is " + str(map.size()) + " tiles by " + str(map[0].size()))
 	print("You are looking at generation #" + str(genNum))
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_left"):
 		for child in get_children():
 			child.queue_free()
-		map = create_new_generation(map, ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS, DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS)
+		map = await create_new_generation(map, ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS, DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS)
 		draw_map(TILE_SIZE, map, WALL_SCENE, FLOOR_SCENE)
 		genNum += 1
 		print("You are looking at generation #" + str(genNum))
@@ -44,11 +44,13 @@ func initialize_map(width: int, height: int, chance: float) -> Array:
 	var array = []
 	for i in height:
 		var row = []
+		await get_tree().process_frame
 		for j in width:
 			var rng = RandomNumberGenerator.new()
 			var randomNumber = rng.randf()
 			var isAlive = randomNumber <= chance
 			row.append(isAlive)
+			print("Initialized random tile at: " + str(i) + ", " + str(j))
 		array.append(row)
 	return array
 
@@ -59,25 +61,28 @@ func initialize_map(width: int, height: int, chance: float) -> Array:
 # (x-index * tile_scale, y-index * tile_scale)
 func draw_map(tile_scale: int, array: Array, wall: PackedScene, floor: PackedScene) -> void:
 	for i in array.size() - 1:
+		await get_tree().process_frame
 		for j in array[i].size() - 1:
 			if(array[i][j]):
 				var wall_instance = wall.instantiate()
-				wall_instance.position = Vector2(tile_scale * i, tile_scale * j)
+				wall_instance.position = Vector2(tile_scale * j, tile_scale * i)
 				add_child(wall_instance)
 				#print("Created a wall at: " + str(wall_instance.position))
 			else:
 				var floor_instance = floor.instantiate()
-				floor_instance.position = Vector2(tile_scale * i, tile_scale * j)
+				floor_instance.position = Vector2(tile_scale * j, tile_scale * i)
 				add_child(floor_instance)
 				#print("Created a floor at: " + str(floor_instance.position))
 
 
 # Running this once generates the next generation of cellular automata utilizing some
 # pre-defined rules.
-func create_new_generation(array: Array, stayAliveThreshold: int, becomeAliveThreshold) -> Array:
+func create_new_generation(array: Array, stayAliveThreshold: int, becomeAliveThreshold: int) -> Array:
 	for row in array.size() - 1:
+		await get_tree().process_frame
 		for col in array[row].size() - 1:
 			array[row][col] = calculate_state_using_rule(row, col, array, stayAliveThreshold, becomeAliveThreshold)
+			print("Ran CA on tile at: " + str(row) + ", " + str(col))
 	return array
 
 
