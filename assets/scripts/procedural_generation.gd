@@ -5,14 +5,14 @@ const TILE_SIZE = 16
 const WALL_SCENE: PackedScene = preload("res://scenes/test_wall_collider_only.tscn")
 const FLOOR_SCENE: PackedScene = preload("res://scenes/test_floor.tscn")
 
-const MAP_COLS = 80
-const MAP_ROWS = 80
+const MAP_COLS = 60
+const MAP_ROWS = 60
 
 const NUM_GENERATIONS = 4
 # Alive represents walls, dead is floor.
 const ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS = 4
 const DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS = 5
-const INITIAL_ALIVE_PERCENT = 0.49
+const INITIAL_ALIVE_PERCENT = 0.485
 
 var map = []
 var genNum = 0
