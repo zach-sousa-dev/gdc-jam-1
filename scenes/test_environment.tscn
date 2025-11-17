@@ -1,10 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctsowiuwr1cga"]
+[gd_scene load_steps=11 format=3 uid="uid://ctsowiuwr1cga"]
 
 [ext_resource type="Script" uid="uid://cl013ejiagg4q" path="res://assets/scripts/test_environment.gd" id="1_8ya4j"]
-[ext_resource type="Texture2D" uid="uid://dl1hm1ubpx7d4" path="res://icon.svg" id="1_uhjjb"]
 [ext_resource type="Texture2D" uid="uid://tkptebiy0xlm" path="res://assets/images/floor.png" id="2_b3mux"]
 [ext_resource type="Script" uid="uid://c5dyag01bq8y0" path="res://assets/scripts/player.gd" id="2_nbain"]
+[ext_resource type="Texture2D" uid="uid://byccnpgb1w28x" path="res://assets/images/character_placeholder.png" id="4_810np"]
+[ext_resource type="Script" uid="uid://jsiqjctst0em" path="res://assets/scripts/gun.gd" id="4_b2arr"]
+[ext_resource type="Texture2D" uid="uid://cq4e07dggxayd" path="res://assets/images/gun_placeholder.png" id="4_frvy6"]
 [ext_resource type="Script" uid="uid://ykd5qtcn5nq7" path="res://assets/scripts/camera_2d.gd" id="5_5qein"]
+[ext_resource type="PackedScene" uid="uid://la083tb427wj" path="res://scenes/bullet.tscn" id="8_810np"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2arr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_810np")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3mux"]
 size = Vector2(16, 32)
@@ -739,10 +753,25 @@ texture = ExtResource("2_b3mux")
 position = Vector2(33, 24)
 script = ExtResource("2_nbain")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="GunParent" type="Node2D" parent="Player"]
 position = Vector2(8, 16)
-scale = Vector2(0.125, 0.25)
-texture = ExtResource("1_uhjjb")
+
+[node name="Gun" type="Node2D" parent="Player/GunParent"]
+position = Vector2(12, -10)
+script = ExtResource("4_b2arr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GunParent/Gun"]
+texture_filter = 1
+position = Vector2(5, -2)
+scale = Vector2(0.202415, 0.208333)
+texture = ExtResource("4_frvy6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-10, -1)
+scale = Vector2(0.101, 0.094)
+sprite_frames = SubResource("SpriteFrames_b2arr")
+animation = &"stand"
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(8, 16)
@@ -750,4 +779,7 @@ shape = SubResource("RectangleShape2D_b3mux")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+zoom = Vector2(2.62, 2.62)
 script = ExtResource("5_5qein")
+
+[node name="Bullet" parent="." instance=ExtResource("8_810np")]
