@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnp6igr6830pr"]
+
+[ext_resource type="Script" uid="uid://cyb5dgopn0iix" path="res://assets/scripts/procedural_generation.gd" id="1_7ksoe"]
+[ext_resource type="Script" uid="uid://cmdt5b585n6ve" path="res://assets/scripts/zoom.gd" id="2_gs2ht"]
+
+[node name="ProceduralGeneration" type="Node2D"]
+
+[node name="Generator" type="Node2D" parent="."]
+script = ExtResource("1_7ksoe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.8, 0.8)
+script = ExtResource("2_gs2ht")
