@@ -2,7 +2,7 @@ extends Node2D
 
 const TILE_SIZE = 16
 
-const WALL_SCENE: PackedScene = preload("res://scenes/test_wall_collider_only.tscn")
+const WALL_SCENE: PackedScene = preload("res://scenes/wall.tscn")
 const FLOOR_SCENE: PackedScene = preload("res://scenes/test_floor.tscn")
 
 const MAP_COLS = 64
@@ -20,6 +20,8 @@ var genNum = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	map = await initialize_map(MAP_COLS, MAP_ROWS, INITIAL_ALIVE_PERCENT)
+	map = await create_new_generation(map, ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS, DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS)
+	genNum += 1
 	draw_map(TILE_SIZE, map, WALL_SCENE, FLOOR_SCENE)
 	print("The map is " + str(map.size()) + " tiles by " + str(map[0].size()))
 	print("You are looking at generation #" + str(genNum))

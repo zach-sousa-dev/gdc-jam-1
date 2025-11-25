@@ -8,11 +8,14 @@ var current_speed = SELECTION_SPEED
 
 @onready var PLAYER_SPRITE = $'AnimatedSprite2D' 
 @onready var GUN_PARENT = $'GunParent' 
+@onready var COLLIDER = $'CollisionShape2D' 
 @onready var GUN_PARENT_ORIGINAL_SCALE_X = GUN_PARENT.scale.x
 
 var spawn_selected = false
 
 func _process(delta: float) -> void:
+	COLLIDER.disabled = !spawn_selected
+	
 	if(spawn_selected):
 		if get_global_mouse_position().x < position.x:
 			PLAYER_SPRITE.flip_h = true

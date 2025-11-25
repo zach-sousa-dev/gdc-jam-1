@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o7imowilq8js"]
+[gd_scene load_steps=12 format=3 uid="uid://o7imowilq8js"]
 
 [ext_resource type="Script" uid="uid://c5dyag01bq8y0" path="res://assets/scripts/player.gd" id="1_fjrip"]
 [ext_resource type="Script" uid="uid://ykd5qtcn5nq7" path="res://assets/scripts/camera_2d.gd" id="2_smehm"]
@@ -6,11 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://cq4e07dggxayd" path="res://assets/images/gun_placeholder.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b7f0hf4kxlwos" path="res://assets/images/tony_walk_1.png" id="5_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://b2ly2t187yg8n" path="res://assets/images/pointer.png" id="5_smehm"]
+[ext_resource type="Texture2D" uid="uid://dqlc7khj7xy8w" path="res://assets/images/cobblestone.png" id="5_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://dgsv6jwl1voy6" path="res://assets/images/tony_walk_2.png" id="6_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://dt8xc3br5k48i" path="res://assets/images/tony_walk_3.png" id="7_jej6c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2arr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ur7pv")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_smehm")
@@ -43,7 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3mux"]
-size = Vector2(16, 16)
+size = Vector2(13, 13)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fjrip")
@@ -70,10 +79,10 @@ texture_filter = 1
 position = Vector2(-9.53674e-07, 1)
 scale = Vector2(1.07, 1)
 sprite_frames = SubResource("SpriteFrames_b2arr")
-animation = &"point"
+animation = &"stand"
 centered = false
 offset = Vector2(-0.25, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 16)
+position = Vector2(8.5, 17.5)
 shape = SubResource("RectangleShape2D_b3mux")
