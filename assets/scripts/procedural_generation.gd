@@ -5,8 +5,8 @@ const TILE_SIZE = 16
 const WALL_SCENE: PackedScene = preload("res://scenes/test_wall_collider_only.tscn")
 const FLOOR_SCENE: PackedScene = preload("res://scenes/test_floor.tscn")
 
-const MAP_COLS = 60
-const MAP_ROWS = 60
+const MAP_COLS = 64
+const MAP_ROWS = 64
 
 const NUM_GENERATIONS = 4
 # Alive represents walls, dead is floor.
@@ -28,7 +28,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_left"):
+	if Input.is_action_just_pressed("debug_button"):
 		for child in get_children():
 			child.queue_free()
 		map = await create_new_generation(map, ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS, DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS)

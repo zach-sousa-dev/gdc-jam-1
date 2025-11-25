@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cft5227xsuubh"]
 
-[ext_resource type="Texture2D" uid="uid://ck47wcv8pgvd8" path="res://assets/images/test_floor.png" id="1_rmnn5"]
+[ext_resource type="Texture2D" uid="uid://bj3ireeet8yvp" path="res://assets/images/dirt.png" id="1_rmnn5"]
 
 [node name="test_floor" type="Sprite2D"]
 texture_filter = 1

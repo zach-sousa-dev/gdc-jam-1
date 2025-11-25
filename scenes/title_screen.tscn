@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1flq82n7ful0"]
+
+[ext_resource type="Script" uid="uid://cyvkyc6hmjfhn" path="res://assets/scripts/title_screen.gd" id="1_fgkus"]
+[ext_resource type="Theme" uid="uid://cybv2v66cl1nr" path="res://assets/themes/main_menu.tres" id="2_sa3yf"]
+[ext_resource type="Texture2D" uid="uid://b8w40tx36tny0" path="res://assets/images/title.png" id="3_s4lrb"]
+[ext_resource type="Texture2D" uid="uid://b7f0hf4kxlwos" path="res://assets/images/tony_walk_1.png" id="4_mgrm8"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 240.0
+color = Color(0.344672, 0.156391, 0.170769, 1)
+
+[node name="StartButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 120.0
+offset_right = 144.0
+offset_bottom = 137.0
+theme = ExtResource("2_sa3yf")
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 144.0
+offset_right = 144.0
+offset_bottom = 161.0
+theme = ExtResource("2_sa3yf")
+text = "QUIT"
+
+[node name="Tony" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 48.0
+offset_right = 192.0
+offset_bottom = 71.0
+texture = ExtResource("4_mgrm8")
+stretch_mode = 4
+
+[node name="Title" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 236.0
+offset_bottom = 104.0
+texture = ExtResource("3_s4lrb")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
