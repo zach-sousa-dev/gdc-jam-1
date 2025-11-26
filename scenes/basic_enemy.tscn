@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://buj7se4e8nrx4"]
+
+[ext_resource type="Script" uid="uid://casxmmatpixn" path="res://scenes/basic_enemy.gd" id="1_cuegt"]
+[ext_resource type="Texture2D" uid="uid://fm8swf1vdhp4" path="res://assets/images/green_1.png" id="1_fn5nn"]
+[ext_resource type="Texture2D" uid="uid://b3hlhy01eo2ta" path="res://assets/images/green_2.png" id="2_cuegt"]
+[ext_resource type="Texture2D" uid="uid://buy3523h35coj" path="res://assets/images/green_hurt.png" id="2_wm70f"]
+[ext_resource type="Texture2D" uid="uid://bvke3ujgthvhl" path="res://assets/images/green_3.png" id="3_wm70f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kr1d5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wm70f")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fn5nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cuegt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_fn5nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wm70f")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fn5nn")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8tja"]
+radius = 7.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wm70f"]
+radius = 17.0
+
+[node name="Basic Enemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_cuegt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_kr1d5")
+animation = &"hurt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("CircleShape2D_a8tja")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["Enemy"]]
+path_desired_distance = 5.0
+target_desired_distance = 0.1
+path_max_distance = 10.0
+path_postprocessing = 1
+
+[node name="DealDamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="RedirectTimer" type="Timer" parent="." groups=["Enemy"]]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wm70f")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 9.71
+
+[connection signal="timeout" from="DealDamageTimer" to="." method="_on_deal_damage_timer_timeout"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="RedirectTimer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

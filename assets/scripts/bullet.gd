@@ -1,8 +1,7 @@
-extends CharacterBody2D
+extends Area2D
 
-var start = Vector2(0, 0)
-var end = Vector2(0,0)
 var dir = Vector2(0,0)
+var speed = 300
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,11 +10,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	velocity = dir * 1
+	position += dir * speed * delta
 
-func with_params(start_pos: Vector2, end_pos: Vector2) -> void:
-	start = start_pos
-	end = end_pos
-	var temp = end - start
+func set_params(start_pos: Vector2, end_pos: Vector2) -> void:
+	position = start_pos
+	var temp = end_pos - start_pos
 	dir = temp.normalized()
 	
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if !body.is_in_group("Player"):
+		if body.is_in_group("Enemy"):
+			body.take_damage()
+		queue_free()
+		

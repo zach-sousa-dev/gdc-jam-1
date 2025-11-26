@@ -11,6 +11,7 @@ const GAMEPLAY_ZOOM = 1
 func _ready():
 	set_process_unhandled_input(true)
 	camera.zoom = Vector2(GAMEPLAY_ZOOM, GAMEPLAY_ZOOM)
+	get_tree().root.get_viewport().canvas_cull_mask &= ~(1 << 19)
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):

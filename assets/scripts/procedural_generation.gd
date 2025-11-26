@@ -12,7 +12,7 @@ const NUM_GENERATIONS = 4
 # Alive represents walls, dead is floor.
 const ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS = 4
 const DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS = 5
-const INITIAL_ALIVE_PERCENT = 0.485
+const INITIAL_ALIVE_PERCENT = 0.45
 
 var map = []
 var genNum = 0
@@ -21,10 +21,11 @@ var genNum = 0
 func _ready() -> void:
 	map = await initialize_map(MAP_COLS, MAP_ROWS, INITIAL_ALIVE_PERCENT)
 	map = await create_new_generation(map, ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS, DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS)
+	map = add_border(map) 
 	genNum += 1
 	draw_map(TILE_SIZE, map, WALL_SCENE, FLOOR_SCENE)
-	print("The map is " + str(map.size()) + " tiles by " + str(map[0].size()))
-	print("You are looking at generation #" + str(genNum))
+	#print("The map is " + str(map.size()) + " tiles by " + str(map[0].size()))
+	#print("You are looking at generation #" + str(genNum))
 
 
 
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 		map = await create_new_generation(map, ALIVE_REMAINS_ALIVE_NUM_ALIVE_NEIGHBORS, DEAD_BECOMES_ALIVE_NUM_ALIVE_NEIGHBORS)
 		draw_map(TILE_SIZE, map, WALL_SCENE, FLOOR_SCENE)
 		genNum += 1
-		print("You are looking at generation #" + str(genNum))
+		#print("You are looking at generation #" + str(genNum))
 
 
 
@@ -52,7 +53,7 @@ func initialize_map(width: int, height: int, chance: float) -> Array:
 			var randomNumber = rng.randf()
 			var isAlive = randomNumber <= chance
 			row.append(isAlive)
-			print("Initialized random tile at: " + str(i) + ", " + str(j))
+			#print("Initialized random tile at: " + str(i) + ", " + str(j))
 		array.append(row)
 	return array
 
@@ -62,9 +63,9 @@ func initialize_map(width: int, height: int, chance: float) -> Array:
 # or false (floor). Each object is spawned at the position 
 # (x-index * tile_scale, y-index * tile_scale)
 func draw_map(tile_scale: int, array: Array, wall: PackedScene, floor: PackedScene) -> void:
-	for i in array.size() - 1:
+	for i in array.size():
 		await get_tree().process_frame
-		for j in array[i].size() - 1:
+		for j in array[i].size():
 			if(array[i][j]):
 				var wall_instance = wall.instantiate()
 				wall_instance.position = Vector2(tile_scale * j, tile_scale * i)
@@ -84,7 +85,7 @@ func create_new_generation(array: Array, stayAliveThreshold: int, becomeAliveThr
 		await get_tree().process_frame
 		for col in array[row].size() - 1:
 			array[row][col] = calculate_state_using_rule(row, col, array, stayAliveThreshold, becomeAliveThreshold)
-			print("Ran CA on tile at: " + str(row) + ", " + str(col))
+			#print("Ran CA on tile at: " + str(row) + ", " + str(col))
 	return array
 
 
@@ -134,3 +135,17 @@ func gather_neighbors(row: int, col: int, array: Array) -> Array:
 	neighbors[7] = array[(row + 1 + HEIGHT) % HEIGHT][(col +  1 + WIDTH) % WIDTH]
 	
 	return neighbors
+	
+func add_border(array: Array):
+	var rows = array.size()
+	var cols = array[0].size()
+	
+	for row in range(rows):
+		array[row][0] = 1;
+		array[row][cols - 1] = 1;
+		
+	for col in range(cols):
+		array[0][col] = 1;
+		array[rows - 1][col] = 1;
+	return array
+	

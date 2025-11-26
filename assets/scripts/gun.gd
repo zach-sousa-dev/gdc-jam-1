@@ -11,5 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	if(Input.is_action_just_pressed("fire")):
-		var bullet = bullet_scene.instantiate().with_params(position, get_global_mouse_position())
-		add_child(bullet)
+		$"../AudioStreamPlayer2D".play(0)
+		var bullet = bullet_scene.instantiate()
+		bullet.set_params(global_position, get_global_mouse_position())
+		get_tree().current_scene.add_child(bullet)

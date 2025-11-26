@@ -1,17 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://o7imowilq8js"]
+[gd_scene load_steps=18 format=3 uid="uid://o7imowilq8js"]
 
 [ext_resource type="Script" uid="uid://c5dyag01bq8y0" path="res://assets/scripts/player.gd" id="1_fjrip"]
+[ext_resource type="AudioStream" uid="uid://dqi0dprwjts2m" path="res://assets/sounds/death.mp3" id="2_jej6c"]
 [ext_resource type="Script" uid="uid://ykd5qtcn5nq7" path="res://assets/scripts/camera_2d.gd" id="2_smehm"]
-[ext_resource type="Script" path="res://assets/scripts/gun.gd" id="3_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://cq4e07dggxayd" path="res://assets/images/gun_placeholder.png" id="4_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://c0ej22gnqyne0" path="res://assets/sounds/hit.wav" id="3_f1ej7"]
+[ext_resource type="Script" uid="uid://jsiqjctst0em" path="res://assets/scripts/gun.gd" id="3_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://2l27q8gl6kfv" path="res://assets/images/gun.png" id="4_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://chn41lq6iq3n7" path="res://assets/images/tony_dead.png" id="5_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b7f0hf4kxlwos" path="res://assets/images/tony_walk_1.png" id="5_d2wvv"]
+[ext_resource type="AudioStream" uid="uid://2e4nbp3pngxo" path="res://assets/sounds/shoot.mp3" id="5_jej6c"]
 [ext_resource type="Texture2D" uid="uid://b2ly2t187yg8n" path="res://assets/images/pointer.png" id="5_smehm"]
 [ext_resource type="Texture2D" uid="uid://dqlc7khj7xy8w" path="res://assets/images/cobblestone.png" id="5_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://dgsv6jwl1voy6" path="res://assets/images/tony_walk_2.png" id="6_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://dt8xc3br5k48i" path="res://assets/images/tony_walk_3.png" id="7_jej6c"]
+[ext_resource type="Texture2D" uid="uid://c5ca4xah5ga43" path="res://assets/images/tony_icon.png" id="10_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://u4fu1gcqomid" path="res://assets/music/game.wav" id="15_oprun"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2arr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3v2ag")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_ur7pv")
@@ -54,35 +68,67 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3mux"]
 size = Vector2(13, 13)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(-8, -24)
 script = ExtResource("1_fjrip")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(14, 13)
+stream = ExtResource("2_jej6c")
+volume_db = -0.5
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(14, 13)
+stream = ExtResource("3_f1ej7")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
 position = Vector2(8, 12)
 script = ExtResource("2_smehm")
 
-[node name="GunParent" type="Node2D" parent="."]
+[node name="GunParent" type="Node2D" parent="." groups=["Player"]]
 position = Vector2(8, 16)
 
-[node name="Gun" type="Node2D" parent="GunParent"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GunParent"]
+position = Vector2(6, -3)
+stream = ExtResource("5_jej6c")
+volume_db = -10.097
+
+[node name="Gun" type="Node2D" parent="GunParent" groups=["Player"]]
 position = Vector2(6, -3)
 script = ExtResource("3_ur7pv")
 
-[node name="Sprite2D" type="Sprite2D" parent="GunParent/Gun"]
+[node name="Sprite2D" type="Sprite2D" parent="GunParent/Gun" groups=["Player"]]
 texture_filter = 1
-position = Vector2(5, -2)
-scale = Vector2(0.202415, 0.208333)
+position = Vector2(2, 0)
+scale = Vector2(0.971, 1)
 texture = ExtResource("4_y4r1p")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 texture_filter = 1
 position = Vector2(-9.53674e-07, 1)
 scale = Vector2(1.07, 1)
 sprite_frames = SubResource("SpriteFrames_b2arr")
-animation = &"stand"
+animation = &"dead"
 centered = false
 offset = Vector2(-0.25, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(8.5, 17.5)
 shape = SubResource("RectangleShape2D_b3mux")
+
+[node name="Icon" type="Sprite2D" parent="."]
+visibility_layer = 524288
+texture_filter = 1
+position = Vector2(8, 12)
+scale = Vector2(16, 16)
+texture = ExtResource("10_y4r1p")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-33, -24)
+stream = ExtResource("15_oprun")
+volume_db = -5.0
+autoplay = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

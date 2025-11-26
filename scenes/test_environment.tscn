@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://00hwy7bemoo5" path="res://scenes/generator.tscn" id="2_ut5rl"]
 [ext_resource type="PackedScene" uid="uid://o7imowilq8js" path="res://scenes/player.tscn" id="4_5qein"]
 [ext_resource type="Script" uid="uid://dolbn3ypopatw" path="res://assets/scripts/sub_viewport.gd" id="5_5qein"]
+[ext_resource type="Texture2D" uid="uid://v1ma564f37ar" path="res://assets/images/vignette.png" id="5_810np"]
 [ext_resource type="Script" uid="uid://b5plsdvltbyq8" path="res://assets/scripts/select_spawn_label.gd" id="6_b2arr"]
-[ext_resource type="AudioStream" uid="uid://u4fu1gcqomid" path="res://assets/music/game.wav" id="6_frvy6"]
-[ext_resource type="PackedScene" uid="uid://la083tb427wj" path="res://scenes/bullet.tscn" id="8_810np"]
+[ext_resource type="Script" uid="uid://cbjlwx23tkqio" path="res://assets/scripts/kill_quota_num.gd" id="7_a8tja"]
 
 [node name="TestEnvironment" type="Node2D"]
 script = ExtResource("1_8ya4j")
@@ -14,16 +14,14 @@ script = ExtResource("1_8ya4j")
 [node name="Generator" parent="." instance=ExtResource("2_ut5rl")]
 
 [node name="Player" parent="." instance=ExtResource("4_5qein")]
-position = Vector2(33, 24)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2(-33, -24)
-stream = ExtResource("6_frvy6")
-autoplay = true
-
-[node name="Bullet" parent="." instance=ExtResource("8_810np")]
+position = Vector2(512, 512)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(128, 120)
+texture = ExtResource("5_810np")
 
 [node name="SelectSpawnBackground" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 5
@@ -47,7 +45,40 @@ text = "CHOOSE SPAWN POINT"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+[node name="KillQuota" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 224.0
+offset_right = 63.0
+offset_bottom = 240.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="KillQuotaText" type="Label" parent="CanvasLayer/KillQuota"]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 11
+text = "Kill Quota:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="KillQuotaNum" type="Label" parent="CanvasLayer/KillQuota"]
+layout_mode = 0
+offset_left = 56.0
+offset_right = 88.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 11
+text = "0/40"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("7_a8tja")
+
+[node name="MiniMapViewPortContainer" type="SubViewportContainer" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -58,18 +89,18 @@ offset_top = -64.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/MiniMapViewPortContainer"]
 handle_input_locally = false
 canvas_cull_mask = 4294967293
 size = Vector2i(64, 64)
 render_target_update_mode = 4
 script = ExtResource("5_5qein")
 
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/MiniMapViewPortContainer/SubViewport"]
 position = Vector2(512, 512)
 zoom = Vector2(0.063, 0.063)
 
-[node name="Line2D" type="Line2D" parent="CanvasLayer/SubViewportContainer"]
+[node name="Line2D" type="Line2D" parent="CanvasLayer/MiniMapViewPortContainer"]
 points = PackedVector2Array(0, 64, 64, 64, 64, 0, 0, 0)
 closed = true
 width = 1.0

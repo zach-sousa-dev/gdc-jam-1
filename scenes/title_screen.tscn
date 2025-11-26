@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1flq82n7ful0"]
+[gd_scene load_steps=6 format=3 uid="uid://b1flq82n7ful0"]
 
 [ext_resource type="Script" uid="uid://cyvkyc6hmjfhn" path="res://assets/scripts/title_screen.gd" id="1_fgkus"]
 [ext_resource type="Theme" uid="uid://cybv2v66cl1nr" path="res://assets/themes/main_menu.tres" id="2_sa3yf"]
 [ext_resource type="Texture2D" uid="uid://b8w40tx36tny0" path="res://assets/images/title.png" id="3_s4lrb"]
 [ext_resource type="Texture2D" uid="uid://b7f0hf4kxlwos" path="res://assets/images/tony_walk_1.png" id="4_mgrm8"]
+[ext_resource type="AudioStream" uid="uid://dkqjrcad2jqfr" path="res://assets/music/title.mp3" id="5_dc4i4"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -57,6 +58,12 @@ offset_top = 56.0
 offset_right = 236.0
 offset_bottom = 104.0
 texture = ExtResource("3_s4lrb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(128, 112)
+stream = ExtResource("5_dc4i4")
+volume_db = -5.814
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
