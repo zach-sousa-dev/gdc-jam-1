@@ -6,7 +6,7 @@ func _process(delta: float) -> void:
 	if $Timer.is_stopped():
 		$Timer.start()
 		var rng = RandomNumberGenerator.new()
-		var random_int = rng.randi_range(1, 100)
+		var random_int = rng.randi_range(1, 250)
 		if random_int == 1:
 			var enemy = enemy_scene.instantiate()
 			enemy.spawn_position(position)

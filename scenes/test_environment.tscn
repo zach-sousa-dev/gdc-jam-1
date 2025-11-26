@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dolbn3ypopatw" path="res://assets/scripts/sub_viewport.gd" id="5_5qein"]
 [ext_resource type="Texture2D" uid="uid://v1ma564f37ar" path="res://assets/images/vignette.png" id="5_810np"]
 [ext_resource type="Script" uid="uid://b5plsdvltbyq8" path="res://assets/scripts/select_spawn_label.gd" id="6_b2arr"]
-[ext_resource type="Script" uid="uid://cbjlwx23tkqio" path="res://assets/scripts/kill_quota_num.gd" id="7_a8tja"]
+[ext_resource type="Script" path="res://assets/scripts/kill_quota_num.gd" id="7_a8tja"]
 
 [node name="TestEnvironment" type="Node2D"]
 script = ExtResource("1_8ya4j")

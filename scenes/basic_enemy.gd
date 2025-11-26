@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 3500
+const SPEED = 4300
 
-var hp = 5
+var hp = 3
 
 var Destination: Node = null
 
